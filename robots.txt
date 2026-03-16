@@ -1,0 +1,18 @@
+User-agent: *
+Allow: /
+Allow: /assets/images/
+Allow: /assets/css/
+Allow: /assets/js/
+
+# Sitemap location
+Sitemap: https://dscreations.com/sitemap.xml
+
+# LLM Crawler hints
+User-agent: GPTBot
+Allow: /
+
+User-agent: ClaudeBot
+Allow: /
+
+User-agent: Google-Extended
+Allow: /

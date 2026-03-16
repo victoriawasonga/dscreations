@@ -1,0 +1,36 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 120 80">
+
+  <!-- D with hollow center -->
+  <path fill="#000000" fill-rule="evenodd"
+    d="
+    M10 10
+    H55
+    C95 10 95 70 55 70
+    H10
+    Z
+
+    M25 25
+    H55
+    C75 25 75 55 55 55
+    H25
+    Z
+  "/>
+
+  <!-- S -->
+  <path
+    d="
+    M70 15
+    C45 15 45 35 70 35
+    L100 35
+    C115 35 115 65 85 65
+    L55 65
+    C40 65 40 45 60 45
+    "
+    fill="none"
+    stroke="#1e9ecb"
+    stroke-width="14"
+    stroke-linecap="round"
+    stroke-linejoin="round"
+  />
+
+</svg>
