@@ -676,31 +676,76 @@
                     <div class="col-lg-5">
                         <div class="contact-form-card">
                             <h2 class="mb-5">Get a Quote</h2>
-                            <form>
+                            <form id="quoteForm" onsubmit="sendToWhatsApp(); return false;">
+
+                                <!-- Success Message -->
+                                <div id="successMsg"
+                                    style="display:none; background:#d1e7dd; color:#0f5132; padding:12px; border-radius:8px; margin-bottom:15px; font-weight:600;">
+                                    WhatsApp opened successfully. Please send your message there.
+                                </div>
+
                                 <div class="form-group-custom">
-                                    <input type="text" class="form-control-custom" placeholder="Your Name">
+                                    <input type="text" id="name" class="form-control-custom" placeholder="Your Name"
+                                        required>
                                     <i class="fa-regular fa-user"></i>
                                 </div>
+
                                 <div class="form-group-custom">
-                                    <input type="email" class="form-control-custom" placeholder="Your Email">
+                                    <input type="email" id="email" class="form-control-custom" placeholder="Your Email"
+                                        required>
                                     <i class="fa-regular fa-envelope"></i>
                                 </div>
+
                                 <div class="form-group-custom">
-                                    <select class="form-control-custom" style="padding-right: 20px;">
-                                        <option selected disabled>Select Subjects</option>
-                                        <option>Printing Quote</option>
-                                        <option>Branding Inquiry</option>
-                                        <option>Design Services</option>
-                                        <option>Other</option>
+                                    <input type="tel" id="phone" class="form-control-custom"
+                                        placeholder="Your Phone Number" required>
+                                    <i class="fa-solid fa-phone"></i>
+                                </div>
+
+                                <div class="form-group-custom">
+                                    <select id="subject" class="form-control-custom" required>
+                                        <option selected disabled value="">Select Subject</option>
+                                        <option>Printing</option>
+                                        <option>Branding </option>
+                                        <option>Design </option>
                                     </select>
                                     <i class="fa-solid fa-chevron-down"></i>
                                 </div>
-                                <div class="form-group-custom mb-5">
-                                    <textarea class="form-control-custom" placeholder="Write Message..."></textarea>
+
+                                <div class="form-group-custom mb-4">
+                                    <textarea id="message" class="form-control-custom" placeholder="Write Message..."
+                                        required></textarea>
                                     <i class="fa-solid fa-pencil"></i>
                                 </div>
-                                <button type="submit" class="btn btn-send">SENT MESSAGE</button>
+
+
+                                <button type="submit" class="btn btn-send">SEND MESSAGE</button>
+
                             </form>
+
+                            <script>
+                                function sendToWhatsApp() {
+
+                                    let name = document.getElementById("name").value;
+                                    let email = document.getElementById("email").value;
+                                    let phoneUser = document.getElementById("phone").value;
+                                    let subject = document.getElementById("subject").value;
+                                    let message = document.getElementById("message").value;
+
+                                    let phone = "254780685880";
+
+                                    let text = `Hello DS Creations,%0A%0A I am ${name} and I'm interested in your services in ${subject}. You can reach me on:${phoneUser} or ${email}.%0A%0A Additional message: %0A%0A ${message}`;
+
+                                    let url = "https://wa.me/" + phone + "?text=" + text;
+
+                                    window.open(url, "_blank");
+
+                                    document.getElementById("successMsg").style.display = "block";
+
+                                    document.getElementById("quoteForm").reset();
+                                }
+                            </script>
+
                         </div>
                     </div>
                 </div>
